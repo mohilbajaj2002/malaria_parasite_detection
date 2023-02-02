@@ -54,7 +54,7 @@ for factor_list in config.factor_list_of_list:
                 for opt_name in config.optimizer_list:
                     optimizer = utils.get_optimizer(opt_name)
                     no_of_classes = config.no_of_classes
-                    img_shape = config.img_shape,
+                    img_shape = config.img_shape
                     model_no = sum(os.path.isdir(i) for i in os.listdir(config.saved_model_root_path)) + 1
                     datatype = factor_list_name
                     classifier_details = utils.get_classifier_details(arch_name)
