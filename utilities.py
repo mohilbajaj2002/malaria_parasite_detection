@@ -5,21 +5,25 @@ import matplotlib.pyplot as plt
 
 
 def plot_history(history, key, model_name):
-    history = history.tolist()
+    #history = history.tolist()          # when reading from file
     fig = plt.figure()
     fig.suptitle(f'Results for {model_name}', fontsize=15)
     fig.subplots_adjust(hspace=0.4, top=0.85)
-    s1 = fig.add_subplot(1,2,1
+    s1 = fig.add_subplot(1,2,1)
     s1.title.set_text("Loss vs Val_loss")
-    plt.plot(history['loss'][3:])
-    plt.plot(history['val_loss'][3:])
+    plt.plot(history.history['loss'][3:])
+    plt.plot(history.history['val_loss'][3:])
+    #plt.plot(history['loss'][3:])        # when reading from file
+    #plt.plot(history['val_loss'][3:])    # when reading from file
     plt.xlabel("Epochs")
     plt.ylabel('loss')
     plt.legend(['loss', 'val_loss'])
     s2 = fig.add_subplot(1,2,2)
     s2.title.set_text(f"{key} vs Val_{key}")
-    plt.plot(history[key])
-    plt.plot(history['val_'+key])
+    plt.plot(history.history[key])
+    plt.plot(history.history['val_'+ key])
+    #plt.plot(history[key])                # when reading from file
+    #plt.plot(history['val_'+ key])        # when reading from file
     plt.xlabel("Epochs")
     plt.ylabel(key)
     plt.legend([key, 'val_'+key])
