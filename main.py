@@ -30,6 +30,10 @@ train, test = tfds.load('malaria', split=['train[:80%]', 'train[80%:]'])
 df = tfds.as_dataframe(train)
 df_test = tfds.as_dataframe(test)
 
+# Creating Model Artifact folders
+os.makedirs(saved_model_root_path, exist_ok=True)
+os.makedirs(saved_history_root_path, exist_ok=True)
+
 # Creating Data folders
 for factor_list in config.factor_list_of_list:
     print(f'Creating New Data: {factor_list}...')
