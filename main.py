@@ -63,7 +63,7 @@ for factor_list in config.factor_list_of_list:
                     datatype = factor_list_name
                     classifier_details = utils.get_classifier_details(arch_name)
                     callback_details = '3_callbacks'
-                    model_name =  f'Attempt_{model_no}_{arch_name}_datatype_{datatype}_{classifier_details}_{opt_name}_{callback_details}_epochs_{epochs}'
+                    model_name =  f'Attempt_{model_no}_{arch_name}_datatype_{datatype}_{classifier_details}_{opt_name}_{callback_details}_epochs_{epochs}_batchsize_{batch_size}'
                     model_path = f'{config.saved_model_root_path}/{model_name}'
                     history_path = f'{config.saved_history_root_path}/{model_name}' + '.npy'
                     img_shape = utils.get_image_shape(arch_name)
