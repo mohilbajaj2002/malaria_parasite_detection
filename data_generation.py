@@ -33,6 +33,24 @@ def preprocess_image_input(input_image, factor):
   return enhanced_img
 
 
+def preprocess_image_input_prediction(input_image, factor, new_shape):
+  factor_contrast = factor
+  factor_brightness = factor
+  input_image = Image.fromarray((input_image * 255).astype(np.uint8)) # PIL.Image.fromarray(np.uint8(input_image))
+
+  enhancer_contrast = ImageEnhance.Contrast(input_image)
+  eq_contrast = enhancer_contrast.enhance(factor_contrast)
+
+  enhancer_brightness = ImageEnhance.Brightness(eq_contrast)
+  eq_brightness = enhancer_brightness.enhance(factor_brightness)
+
+  enhanced_img = np.array(eq_brightness).astype(np.float32)
+  enhanced_img = enhanced_img/255.0
+  enhanced_img = np.resize(enhanced_img, new_shape)
+  enhanced_img = np.expand_dims(enhanced_img, axis=0)
+  return enhanced_img
+
+
 def create_image(image_array, name_prefix, index, final_path):
   data = Image.fromarray(np.uint8(image_array))
   name = f'{name_prefix}_{index}.jpg'

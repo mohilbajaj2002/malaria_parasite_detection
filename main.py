@@ -38,7 +38,7 @@ os.makedirs(saved_history_root_path, exist_ok=True)
 for factor_list in config.factor_list_of_list:
     print(f'Creating New Data: {factor_list}...')
     factor_list_str = [str(i) for i in factor_list]
-    factor_list_name = '_' + ''.join(factor_list_str)
+    factor_list_name = .join(factor_list_str)
     main = [config.training_folder + factor_list_name, config.test_folder + factor_list_name, config.aug_test_folder + factor_list_name]
     datagen.create_image_folder(df, main[0], factor_list)
     datagen.create_image_folder(df_test, main[1], factor_list)

@@ -26,10 +26,14 @@ factor_list_of_list = [[0], [0, 2], [0,3]] #[0], [2], [3], [0, 2], [0,3], [2, 3]
 no_of_classes = len(classes)
 input_shape = (1, 224, 224, 3)
 img_shape = [224, 224]
-hhna_img_shape = [150, 150]
+hhna_img_shape = [150, 150, 3]
 lr_scheduler_epoch_factor = 0.2
 early_stopping_epoch_factor = 0.75
 architecture_list = ['VGG16', 'InceptionV3'] #'VGG16', 'InceptionV3', 'InceptionResNetV2', 'Resnet50', 'HHNA'
 batch_size_list = [32] # 32, 64, 128
 epoch_list = [1] # 50, 100, 200
 optimizer_list = ['SGD', 'RMSProp', 'Adam']
+
+# for prediction
+best_model = ''
+prediction_image_path = ''

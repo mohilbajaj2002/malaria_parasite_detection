@@ -71,9 +71,9 @@ def get_resnet_toggle(name):
 
 def get_classifier_details(arch_name):
     if(arch_name == 'HHNA'):
-        return '3_layer_classifer'
+        return '3_layer_classifier'
     else:
-        return '2_layer_classifer'
+        return '2_layer_classifier'
 
 def get_image_shape(arch_name):
     if(arch_name == 'HHNA'):
